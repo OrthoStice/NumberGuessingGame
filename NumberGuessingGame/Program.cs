@@ -10,12 +10,23 @@ namespace NumberGuessingGame
     {
         static void Main(string[] args)
         {
-            // The code provided will print ‘Hello World’ to the console.
-            // Press Ctrl+F5 (or go to Debug > Start Without Debugging) to run your app.
-            Console.WriteLine("Hello World!");
+            int min = 1;
+            int max = 20;
+            Console.WriteLine("I'm thinking of a number between {0} and {1}.  Can you guess it in 3 tries?", min, max);
+
+            // TODO: Create a console app that picks a random number and then gives the user 3 chances to guess it.
+            // Use our GenerateRandomNumber() method to generate the number.
+            // With each incorrect answer tell the user if the correct answer is higher or lower.
+            // At the end ask if they want to play again or end.
+
             Console.ReadKey();
 
-            // Go to http://aka.ms/dotnet-get-started-console to continue learning how to build a console app! 
+        }
+
+        static int GenerateRandomNumber(int min, int max)
+        {
+            Random rnd = new Random();
+            return rnd.Next(min,max);
         }
     }
 }
