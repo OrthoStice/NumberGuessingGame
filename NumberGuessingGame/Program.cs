@@ -13,8 +13,6 @@ namespace NumberGuessingGame
             //setting tryAgain value to true so game continues until the user chooses to end
             bool tryAgain = true;
 
-            //instantiating a variable to take a user entry
-            string entry;
             //min, max, and numbeOfTries can be changed in one place to adjust difficulty of the game
             int min = 1;
             int max = 20;
@@ -37,11 +35,11 @@ namespace NumberGuessingGame
                         //evaluates if the number was too high too low or just right and tells the user
                         if (int.Parse(guess) > random)
                         {
-                            Console.WriteLine("Your guess was too high. ");
+                            Console.WriteLine("Your guess was too high. \r\n");
                         }
                         if (int.Parse(guess) < random)
                         {
-                            Console.Write("Your guess was too low. ");
+                            Console.Write("Your guess was too low. \r\n");
                         }
                         if (int.Parse(guess) == random)
                         {
@@ -63,7 +61,7 @@ namespace NumberGuessingGame
                 }
 
                 Console.WriteLine("Do you want to try again? Type Y or N", random);
-                entry = Console.ReadLine();
+                string entry = Console.ReadLine();
 
                 //if the user selects no then we won't try again
                 if (entry.ToLower().Equals("n"))
