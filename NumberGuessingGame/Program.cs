@@ -23,7 +23,7 @@ namespace NumberGuessingGame
             {
                 //set to determine if the user won or not 
                 bool winningGuess = false;
-                //gets our random number for the user to try to guess
+                //gets our random number for the user to try to guess and stores in a variable
                 int random = GenerateRandomNumber(min, max);
                 Console.WriteLine("I'm thinking of a number between {0} and {1}. Can you guess it in {2} tries?", min, max, numberOfTries);
 
