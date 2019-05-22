@@ -1,42 +1,42 @@
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace NumberGuessingGame
+namespace Guessing_Game3
 {
     class Program
     {
         static void Main(string[] args)
         {
-            int min = 1;
-            int max = 20;
-            Console.WriteLine("I'm thinking of a number between {0} and {1}.  Can you guess it in 3 tries?", min, max);
+            //const int MAX_NUMBER = 3;
 
-            // TODO: Create a console app that picks a random number and then gives the user 3 chances to guess it.
+            Random random = new Random();
+            int numberToGuess = random.Next(20) + 1;
+            int userGuess = 0;
+            int numguesses = 0;
 
+            while (userGuess != numberToGuess)
+            {
+                numguesses++;
 
-            //TODO: Use our GenerateRandomNumber() method to generate the number and store it in a variable.
+                Console.Write("I am thinking of a number between 1 and 20, enter your number! You have 3 guesses!: ");
+                int.TryParse(Console.ReadLine(), out userGuess);
 
-            //TODO: while loop for three guesses
-            //ask the user to guess a number between 1 and 20 (use console.writeline) 
-            //store the users answer in a variable
-            //use an if else conditional to determine if their guess is equal to yours 
-                    //if equal win, give them a win message
-
-
-            // With each incorrect answer tell the user if the correct answer is higher or lower.
-            // At the end ask if they want to play again or end.
-
-            Console.ReadKey();
+                if (userGuess > numberToGuess)
+                {
+                    Console.WriteLine("{0} is too high, guess again!", userGuess);
+                }
+                else if (userGuess < numberToGuess)
+                {
+                    Console.WriteLine("{0} is too low, guess again!", userGuess);
+                }
+                else
+                {
+                    Console.WriteLine("{0} is right! Congrats! Would you like to play again?", userGuess);
+                    Console.WriteLine("Number of guesses: {0}", numguesses);
+                }
+            }
 
         }
 
-        static int GenerateRandomNumber(int min, int max)
-        {
-            Random rnd = new Random();
-            return rnd.Next(min,max);
-        }
+
     }
 }
